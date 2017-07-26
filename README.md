@@ -1,38 +1,46 @@
 Role Name
 =========
-
-A brief description of the role goes here.
+Ansible role for Celery Flower setup
 
 Requirements
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Ansible 1.2 or later
 
 Role Variables
 --------------
-
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+- flower_version: Version of flower to install
+- flower_user: User to run flower
+- flower_group: Group to run flower
+- flower_app_name: Application name
+- flower_app_module: Set to application module
+- flower_pre_exec: Commands to execute before starting celery
+- flower_env: Default environment variables
+- flower_prefix: Set to installation prefix
+- flower_work_dir: Working directory
+- flower_run_dir: Run directory
+- flower_log_dir: Log directory
+- flower_log_level: Log level
+- flower_basic_auth_enabled: Basic Auth flag
+- flower_basic_auth: Basic Auth params
+- flower_url_prefix_enabled: URL prefix flag
+- flower_url_prefix: URL prefix
+- flower_broker: Broker URL
+- flower_host: Run the http server on a given address
+- flower_port: Run the http server on a given port
 
 Dependencies
 ------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
-
-Example Playbook
-----------------
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+None
 
 License
 -------
-
-BSD
+MIT
 
 Author Information
 ------------------
+Rajtilak Indrajit
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+References
+------------------
+- https://github.com/Stouts/Stouts.celery
+- http://bespokebytes.com/start-getting-up-and-running-with-upstart/

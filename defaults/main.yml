@@ -1,2 +1,33 @@
 ---
 # defaults file for rtindru.flower-celery
+
+flower_version: 0.9.2                                 # Version of flower to install
+
+flower_user: "{{deploy_user|default('root')}}"        # User to run flower
+flower_group: "{{deploy_group|default('root')}}"      # Group to run flower
+
+flower_app_name: "{{deploy_app_name|default('web')}}" # Application name
+flower_app_module: "{{flower_app_name}}"              # Set to application module
+flower_host: localhost
+flower_port: 5555
+flower_broker: "amqp://guest:guest@localhost:5672//"  # Broker URL
+
+flower_pre_exec: []                                   # Commands to execute before starting celery, e.g (`. /path/to/env_vars`)
+flower_env: {}                                        # Default environment variables
+
+# Directories
+flower_prefix: "{{deploy_dir|default('/usr/lib/' + flower_app_name)}}" # Set to installation prefix
+flower_work_dir: "{{deploy_src_dir|default(flower_prefix + '/src')}}" # Set to work directory
+flower_run_dir: "{{deploy_run_dir|default(flower_prefix + '/run')}}" # Set to run directory
+
+# Logging
+flower_log_dir: "{{deploy_log_dir|default(flower_prefix + '/log')}}" # Set default log directory
+flower_log_level: info                                # Set default log level
+
+# Authentication
+flower_basic_auth_enabled: no
+flower_basic_auth: ""                                 # comma separated list of username:password  http://flower.readthedocs.io/en/latest/auth.html#http-basic-authentication
+
+# URL Prefix
+flower_url_prefix_enabled: no
+flower_url_prefix: ""
